@@ -2,18 +2,19 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import avatarPic from "../public/avatar.png";
 
 /* =====================================================================
    DATA
    ===================================================================== */
 const NAV_LINKS = [
-  { label: "About",    href: "#about"    },
-  { label: "Skills",   href: "#skills"   },
-  { label: "Education",href: "#education"},
-  { label: "Projects", href: "#projects" },
-  { label: "Experience",href:"#experience"},
-  { label: "Certs",    href: "#certs"    },
-  { label: "Contact",  href: "#contact"  },
+  { label: "About",      href: "#about" },
+  { label: "Skills",     href: "#skills" },
+  { label: "Education",  href: "#education" },
+  { label: "Projects",   href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Certs",      href: "#certs" },
+  { label: "Contact",    href: "#contact" },
 ];
 
 const TYPED_WORDS = [
@@ -21,7 +22,7 @@ const TYPED_WORDS = [
   "Gen AI Enthusiast",
   "Java Developer",
   "Python Developer",
-  "BCA → MCA Student",
+  "Cloud & DevOps Learner",
 ];
 
 const SKILLS = [
@@ -48,12 +49,12 @@ const SKILLS = [
   {
     icon: "🗄️",
     title: "Databases",
-    tags: ["SQL", "MySQL", "MongoDB", "Firebase"],
+    tags: ["SQL", "MySQL", "MongoDB", "Firebase", "Supabase"],
   },
   {
     icon: "🛠️",
     title: "DevOps & Tools",
-    tags: ["Git", "GitHub", "VS Code", "Linux", "Docker (basics)", "CI/CD"],
+    tags: ["Git", "GitHub", "VS Code", "Linux", "Docker", "CI/CD", "AWS"],
   },
 ];
 
@@ -61,7 +62,7 @@ const EDUCATION = [
   {
     degree: "MCA — Generative AI",
     institute: "SRM Institute of Science and Technology, Kattankulathur",
-    year: "2024 – Present",
+    year: "2026 – 2028",
     badge: "Current",
     tags: ["Generative AI", "Machine Learning", "Deep Learning", "NLP"],
     desc: "Specializing in Generative AI technologies including LLMs, multimodal systems, and AI product development.",
@@ -69,7 +70,7 @@ const EDUCATION = [
   {
     degree: "BCA — Bachelor of Computer Applications",
     institute: "Amity University, Patna",
-    year: "2021 – 2024",
+    year: "2023 – 2026",
     badge: "8.17 CGPA",
     tags: ["Web Development", "Java", "Python", "DBMS", "Data Structures"],
     desc: "Graduated with 8.17 CGPA. Core focus on web technologies, object-oriented programming, and database management.",
@@ -78,26 +79,34 @@ const EDUCATION = [
 
 const PROJECTS = [
   {
-    icon: "💡",
-    title: "AI Resume Analyzer",
-    desc: "A Gen AI-powered web app that parses resumes and generates personalized career advice, skill gap analysis, and job match scores using LLMs and LangChain.",
-    tags: ["Next.js", "LangChain", "OpenAI API", "Python", "MongoDB"],
+    icon: "🛒",
+    title: "End-to-End E-Commerce",
+    desc: "A fully deployed e-commerce platform with Firebase authentication, Supabase database, and secure Razorpay payment integration.",
+    tags: ["Firebase", "Supabase", "Razorpay", "Web App"],
+    github: "https://github.com/amanver02",
+    demo: "https://m-bootcamp.vercel.app",
+  },
+  {
+    icon: "♻️",
+    title: "Smart Waste Management System",
+    desc: "BCA final year project — users report waste with geotagged photos to municipal authorities, who verify cleanup with confirmation photos.",
+    tags: ["Python", "Firebase", "Supabase", "Geolocation"],
     github: "https://github.com/amanver02",
     demo: null,
   },
   {
-    icon: "🌐",
-    title: "Portfolio CMS",
-    desc: "A dynamic portfolio content management system built with Next.js and Firebase, featuring real-time updates, admin dashboard, and responsive design.",
-    tags: ["Next.js", "Firebase", "TypeScript", "Tailwind CSS"],
+    icon: "✨",
+    title: "Personal Portfolio",
+    desc: "A clean, modern, and highly responsive personal portfolio deployed on a custom domain to showcase projects, skills, and experience.",
+    tags: ["Next.js", "React", "TypeScript", "Vercel"],
     github: "https://github.com/amanver02",
-    demo: null,
+    demo: "https://vermaaman.me",
   },
   {
-    icon: "🐍",
-    title: "Python Data Dashboard",
-    desc: "An interactive data visualization dashboard built with Python and Streamlit, performing EDA on real-world datasets with charts, filters, and insights.",
-    tags: ["Python", "Streamlit", "Pandas", "NumPy", "Matplotlib"],
+    icon: "📅",
+    title: "Amity Patna Event Management",
+    desc: "A comprehensive event management system for Amity University, Patna — to organize, track, and manage university events efficiently.",
+    tags: ["Web Development", "Event Management", "Database"],
     github: "https://github.com/amanver02",
     demo: null,
   },
@@ -105,45 +114,50 @@ const PROJECTS = [
 
 const EXPERIENCE = [
   {
-    icon: "💻",
-    role: "Web Development Intern",
-    company: "XYZ Corp",
+    role: "DevOps Intern",
+    company: "InternNexus",
     type: "Internship",
-    date: "Jun 2024 – Aug 2024",
+    date: "Jun 2025 – Aug 2025",
     points: [
-      "Developed responsive UI components using React and Tailwind CSS",
-      "Integrated REST APIs and optimized frontend performance",
-      "Collaborated with cross-functional teams using Git workflow",
-      "Participated in Agile sprints and daily standups",
+      "Gained hands-on experience with cloud computing architectures and Docker containerization.",
+      "Collaborated on-site in Patna to deploy and manage scalable infrastructure.",
+      "Developed automated deployment pipelines and optimized system performance.",
+    ],
+  },
+  {
+    role: "Cloud Computing AWS Intern",
+    company: "Internshala Trainings",
+    type: "Internship",
+    date: "May 2025 – Jul 2025",
+    points: [
+      "Completed comprehensive training on Amazon Web Services (AWS) and cloud infrastructure.",
+      "Designed and deployed cloud-native applications in a remote setting.",
+      "Acquired skills in AWS EC2, IAM, and cloud security best practices.",
+    ],
+  },
+  {
+    role: "Full-stack Intern",
+    company: "CETPA Infotech Pvt. Ltd.",
+    type: "Internship",
+    date: "Jun 2024 – Jul 2024",
+    points: [
+      "Built responsive web applications using Node.js and React.js.",
+      "Worked on-site in Patna to deliver full-stack projects alongside a development team.",
+      "Integrated REST APIs and optimized frontend performance.",
     ],
   },
 ];
 
 const CERTS = [
-  {
-    icon: "🤖",
-    title: "Generative AI Fundamentals",
-    issuer: "Google Cloud",
-    year: "2024",
-  },
-  {
-    icon: "🌐",
-    title: "Responsive Web Design",
-    issuer: "freeCodeCamp",
-    year: "2023",
-  },
-  {
-    icon: "☕",
-    title: "Java Programming Masterclass",
-    issuer: "Udemy",
-    year: "2023",
-  },
-  {
-    icon: "🐍",
-    title: "Python for Data Science",
-    issuer: "IBM / Coursera",
-    year: "2024",
-  },
+  { icon: "☕", title: "Java Programming", issuer: "Simplilearn", year: "Dec 2025" },
+  { icon: "🤖", title: "Machine Learning Using Python", issuer: "Simplilearn", year: "Sep 2025" },
+  { icon: "☁️", title: "OCI 2025 Certified AI Foundations Associate", issuer: "Oracle", year: "Aug 2025" },
+  { icon: "🛠️", title: "Certified DevOps", issuer: "InternNexus", year: "2025" },
+  { icon: "☁️", title: "Cloud computing with AWS", issuer: "Internshala", year: "Jul 2025" },
+  { icon: "🚀", title: "Postman API Fundamentals Student Expert", issuer: "Postman", year: "Nov 2024" },
+  { icon: "📜", title: "Javascript for beginners", issuer: "Udemy", year: "Jan 2024" },
+  { icon: "🧩", title: "Problem Solving", issuer: "HackerRank", year: "Feb 2024" },
+  { icon: "💻", title: "C programming", issuer: "Great Learning", year: "Jul 2023" },
 ];
 
 /* =====================================================================
@@ -262,7 +276,7 @@ const SendIcon = () => (
    MAIN COMPONENT
    ===================================================================== */
 export default function Portfolio() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [formSent, setFormSent] = useState(false);
@@ -306,7 +320,7 @@ export default function Portfolio() {
       <nav className={`navbar ${scrolled ? "scrolled" : ""}`} role="navigation" aria-label="Main navigation">
         <div className="navbar-inner">
           <a href="#hero" className="navbar-logo" onClick={(e) => handleNav(e, "#hero")}>
-            AV<span style={{ color: "var(--text-muted)" }}>.</span>
+            AV<span style={{ color: "var(--accent)" }}>.</span>
           </a>
 
           <ul className="navbar-links" role="list">
@@ -363,7 +377,7 @@ export default function Portfolio() {
               <h1 className="hero-name">Aman Verma</h1>
 
               <p className="hero-title">
-                {typedText}
+                <span className="hero-title-gradient">{typedText}</span>
                 <span className="cursor" aria-hidden="true" />
               </p>
 
@@ -423,10 +437,8 @@ export default function Portfolio() {
             <div className="hero-avatar-wrap">
               <div className="hero-avatar-ring" />
               <Image
-                src="/avatar.png"
+                src={avatarPic}
                 alt="Aman Verma"
-                width={240}
-                height={240}
                 className="hero-avatar"
                 priority
               />
@@ -436,51 +448,38 @@ export default function Portfolio() {
       </section>
 
       {/* ==================== ABOUT ==================== */}
-      <section id="about" style={{ padding: "96px 0", background: "var(--bg-alt)" }} aria-label="About section">
+      <section id="about" style={{ background: "var(--bg-alt)" }} aria-label="About section">
         <div className="container">
           <div className="section-header reveal">
             <span className="section-tag">About Me</span>
             <h2 className="section-title">Who I Am</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px", alignItems: "center" }} className="reveal reveal-delay-1">
-            <div>
-              <p style={{ fontSize: "1.05rem", lineHeight: "1.85", marginBottom: "20px", color: "var(--text-secondary)" }}>
-                Hi! I&apos;m <strong style={{ color: "var(--text-primary)" }}>Aman Verma</strong>, a passionate developer
+          <div className="about-grid reveal reveal-delay-1">
+            <div className="about-text">
+              <p>
+                Hi! I&apos;m <strong>Aman Verma</strong>, a passionate developer
                 and tech enthusiast from India. I completed my BCA from{" "}
-                <strong style={{ color: "var(--text-primary)" }}>Amity University, Patna</strong> with an impressive
+                <strong>Amity University, Patna</strong> with an impressive
                 8.17 CGPA and am currently pursuing MCA with specialization in{" "}
-                <strong style={{ color: "var(--text-primary)" }}>Generative AI</strong> at{" "}
-                <strong style={{ color: "var(--text-primary)" }}>SRM Institute, Kattankulathur</strong>.
+                <strong>Generative AI</strong> at{" "}
+                <strong>SRM Institute, Kattankulathur</strong>.
               </p>
-              <p style={{ fontSize: "1.05rem", lineHeight: "1.85", color: "var(--text-secondary)" }}>
+              <p>
                 My interests span across web development, AI/ML, and building tools that make
                 life easier. I enjoy working on full-stack applications and exploring the frontier
                 of large language models and generative AI technologies.
               </p>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+            <div className="about-stats">
               {[
                 { label: "CGPA", value: "8.17" },
                 { label: "Degree", value: "BCA + MCA" },
                 { label: "Focus", value: "Gen AI" },
                 { label: "Status", value: "Open to Work" },
               ].map((stat) => (
-                <div
-                  key={stat.label}
-                  style={{
-                    background: "var(--bg)",
-                    border: "1px solid var(--border)",
-                    borderRadius: "var(--radius-sm)",
-                    padding: "24px",
-                    textAlign: "center",
-                  }}
-                >
-                  <div style={{ fontSize: "1.5rem", fontWeight: 800, letterSpacing: "-0.03em", marginBottom: "4px" }}>
-                    {stat.value}
-                  </div>
-                  <div style={{ fontSize: "0.78rem", color: "var(--text-muted)", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.08em" }}>
-                    {stat.label}
-                  </div>
+                <div key={stat.label} className="stat-card">
+                  <div className="stat-value">{stat.value}</div>
+                  <div className="stat-label">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -605,7 +604,7 @@ export default function Portfolio() {
           <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
             {EXPERIENCE.map((exp, i) => (
               <div key={exp.role} className={`exp-card reveal reveal-delay-${i + 1}`}>
-                <div className="exp-logo">{exp.icon}</div>
+                <div className="exp-logo">💼</div>
                 <div>
                   <h3 className="exp-role">{exp.role}</h3>
                   <p className="exp-company">{exp.company}</p>
@@ -768,7 +767,7 @@ export default function Portfolio() {
         <div className="container">
           <p className="footer-text">
             Designed &amp; built by{" "}
-            <strong style={{ color: "var(--text-primary)" }}>Aman Verma</strong> · 2025
+            <strong>Aman Verma</strong> · 2025
           </p>
           <p className="footer-text" style={{ marginTop: "6px" }}>
             BCA · Amity Patna &nbsp;→&nbsp; MCA Gen AI · SRM KTR
