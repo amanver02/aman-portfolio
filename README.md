@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aman Verma's Personal Portfolio 🚀
 
-## Getting Started
+A premium, interactive, dark-first developer portfolio showcasing my skills, experience, projects, and certifications. Built with Next.js 15, React, TypeScript, and custom CSS.
 
-First, run the development server:
+🌐 **Live Demo:** [vermaaman.me](https://vermaaman.me)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Features
+- **Dark-First Modern Aesthetic:** Designed with a curated dark color palette, smooth gradients, and glassmorphism.
+- **Micro-Animations & Transitions:** Interactive elements with smooth hover animations, floating components, and scroll reveal animations.
+- **Dynamic Typing Effect:** Custom typewriter effect in the hero section displaying core specializations.
+- **Theme Toggle:** Supports seamless switching between light and dark modes.
+- **Fully Responsive:** Optimised for desktop, tablet, and mobile devices.
+- **Performance Optimized:** Clean code structure, fully accessible HTML, and SEO-optimized metadata.
+
+## 🛠️ Tech Stack & Skills
+- **Frontend:** Next.js 15 (App Router), React, TypeScript, Custom CSS
+- **Backend & Database:** Firebase, Supabase, SQL, MongoDB
+- **Languages:** Java, Python, JavaScript
+- **DevOps & Cloud:** Git, GitHub, Docker, CI/CD, AWS
+- **Specialization:** Generative AI & LLMs (LangChain, Prompt Engineering)
+
+---
+
+## 📂 Project Structure
+```text
+├── app/                  # Next.js App Router (pages, layout, globals.css)
+├── public/               # Static assets (images, icons)
+├── package.json          # Dependency and script configuration
+├── tsconfig.json         # TypeScript configuration
+└── next.config.ts        # Next.js configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/amanver02/aman-portfolio.git
+   cd aman-portfolio
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Build the production package:
+   ```bash
+   npm run build
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Designed & Developed by **Aman Verma**

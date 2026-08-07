@@ -8,6 +8,12 @@ const inter = Inter({
   display: "swap",
 });
 
+export const viewport = {
+  themeColor: "#09090b",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: "Aman Verma | Developer & Gen AI Enthusiast",
   description:

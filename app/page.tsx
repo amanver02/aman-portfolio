@@ -52,9 +52,14 @@ const SKILLS = [
     tags: ["SQL", "MySQL", "MongoDB", "Firebase", "Supabase"],
   },
   {
+    icon: "🔀",
+    title: "Version Control",
+    tags: ["Git", "GitHub", "GitLab", "Branching & Merging", "Conflict Resolution"],
+  },
+  {
     icon: "🛠️",
     title: "DevOps & Tools",
-    tags: ["Git", "GitHub", "VS Code", "Linux", "Docker", "CI/CD", "AWS"],
+    tags: ["VS Code", "Linux", "Docker", "CI/CD", "AWS"],
   },
 ];
 
@@ -772,6 +777,16 @@ export default function Portfolio() {
           <p className="footer-text" style={{ marginTop: "6px" }}>
             BCA · Amity Patna &nbsp;→&nbsp; MCA Gen AI · SRM KTR
           </p>
+          <div style={{ marginTop: "16px" }}>
+            <a
+              href="mailto:amanver055@gmail.com"
+              className="btn-secondary"
+              style={{ fontSize: "0.85rem", padding: "8px 20px" }}
+              id="footer-email-direct"
+            >
+              <EmailIcon /> Mail me directly: amanver055@gmail.com
+            </a>
+          </div>
         </div>
       </footer>
     </>
