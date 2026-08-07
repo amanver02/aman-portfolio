@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 /* =====================================================================
@@ -153,35 +153,34 @@ function useTypedText(words: string[], typingSpeed = 70, deletingSpeed = 40, pau
   const [displayed, setDisplayed] = useState("");
   const [wordIndex, setWordIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const tick = useCallback(() => {
-    const current = words[wordIndex];
-    if (!isDeleting) {
-      setDisplayed(current.substring(0, displayed.length + 1));
-      if (displayed.length + 1 === current.length) {
-        timeoutRef.current = setTimeout(() => setIsDeleting(true), pause);
-        return;
-      }
-      timeoutRef.current = setTimeout(tick, typingSpeed);
-    } else {
-      setDisplayed(current.substring(0, displayed.length - 1));
-      if (displayed.length - 1 === 0) {
-        setIsDeleting(false);
-        setWordIndex((i) => (i + 1) % words.length);
-        timeoutRef.current = setTimeout(tick, typingSpeed);
-        return;
-      }
-      timeoutRef.current = setTimeout(tick, deletingSpeed);
-    }
-  }, [displayed, isDeleting, wordIndex, words, typingSpeed, deletingSpeed, pause]);
 
   useEffect(() => {
-    timeoutRef.current = setTimeout(tick, typingSpeed);
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-  }, [tick, typingSpeed]);
+    const currentWord = words[wordIndex];
+    let timeout: ReturnType<typeof setTimeout>;
+
+    if (!isDeleting) {
+      if (displayed === currentWord) {
+        timeout = setTimeout(() => setIsDeleting(true), pause);
+      } else {
+        timeout = setTimeout(() => {
+          setDisplayed(currentWord.slice(0, displayed.length + 1));
+        }, typingSpeed);
+      }
+    } else {
+      if (displayed === "") {
+        timeout = setTimeout(() => {
+          setIsDeleting(false);
+          setWordIndex((prev) => (prev + 1) % words.length);
+        }, typingSpeed);
+      } else {
+        timeout = setTimeout(() => {
+          setDisplayed(currentWord.slice(0, displayed.length - 1));
+        }, deletingSpeed);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayed, isDeleting, wordIndex, words, typingSpeed, deletingSpeed, pause]);
 
   return displayed;
 }
